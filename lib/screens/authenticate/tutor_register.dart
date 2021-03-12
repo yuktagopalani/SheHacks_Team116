@@ -56,7 +56,7 @@ class _TutorRegisterState extends State<TutorRegister> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Happy to Help!"),
+        title: Text("Need Help?"),
       ),
       body: ListView(
         children: <Widget>[

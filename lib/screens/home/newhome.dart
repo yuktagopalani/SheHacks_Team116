@@ -14,9 +14,9 @@ class NewHome extends StatelessWidget {
         appBar: AppBar(
           title: Text("Welcome!"),
           actions: <Widget>[
-              FlatButton.icon(onPressed: ()async{
-                  await _auth.signingOut();
-                }, icon: Icon(Icons.person), label: Text("Logout")),
+//              FlatButton.icon(onPressed: ()async{
+//                  await _auth.signingOut();
+//                }, icon: Icon(Icons.person), label: Text("Logout")),
 
             FlatButton.icon(onPressed: (){
               Navigator.push(
@@ -24,7 +24,7 @@ class NewHome extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => Profile()),
               );
 
-              }, icon: Icon(Icons.add), label: Text("Add Help")),
+              }, icon: Icon(Icons.person), label: Text("Profile")),
           ],
           bottom: TabBar(
             tabs: [

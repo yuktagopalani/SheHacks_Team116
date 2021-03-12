@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hobbyhub/modules/need.dart';
+import 'package:hobbyhub/screens/authenticate/tutor_register.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -122,8 +123,14 @@ class _ProfileState extends State<Profile> {
               Icons.add,
             ),
             onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => TutorRegister()),
+              );
+
               // action on button press
-            }));
+            })
+    );
     ;
   }
 }
