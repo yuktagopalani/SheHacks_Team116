@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hobbyhub/modules/need.dart';
 import 'package:hobbyhub/screens/home/itemview.dart';
 import 'package:hobbyhub/services/googlemaps.dart';
+import 'package:hobbyhub/screens/home/requestView.dart';
 class NeedCard extends StatelessWidget {
   final Need need;
   NeedCard({this.need});
@@ -13,7 +14,12 @@ class NeedCard extends StatelessWidget {
       width: double.maxFinite,
       child: GestureDetector(
         onTap: (){
-          MapUtils.openMap(need.latitude, need.longitude);
+//          MapUtils.openMap(need.latitude, need.longitude);
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => RequestView(need: need,)),
+          );
+
         },
         child: Card(
           elevation: 5,
