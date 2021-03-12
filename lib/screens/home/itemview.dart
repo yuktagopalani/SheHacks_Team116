@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hobbyhub/modules/need.dart';
+import 'package:hobbyhub/services/googlemaps.dart';
 class ItemView extends StatelessWidget {
   final Need need;
   ItemView({this.need});
@@ -7,10 +8,43 @@ class ItemView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        SizedBox(height: 10.0),
-        Text("${need.name} is in need of ${need.type}"),
-        SizedBox(height: 10.0),
-        Text("Location"),
+        SizedBox(height: 20.0),
+//        Expanded(
+//          child:
+          Text("${need.name} is in need of ${need.type}",
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20.0,
+          ),),
+//        ),
+        SizedBox(height: 20.0),
+        Row(
+          children: <Widget>[
+            SizedBox(
+              width: 50.0,
+            ),
+           GestureDetector(
+            onTap: (){
+              MapUtils.openMap(need.latitude, need.longitude);
+            },
+              child: Text("Location",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30.0,
+                  color: Colors.blue,
+                ),
+              )
+          ),
+            SizedBox(
+              width: 50.0,
+            ),
+            Icon(
+              Icons.call,
+              color: Colors.blue,
+              size: 30.0,
+            ),
+          ],
+        ),
       ],
     );
   }
