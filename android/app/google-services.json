@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "250120900267",
+    "project_id": "hobbyhub-b89f8",
+    "storage_bucket": "hobbyhub-b89f8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:250120900267:android:f983b049ff9534e59471ee",
+        "android_client_info": {
+          "package_name": "com.example.hobbyhub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "250120900267-4pe6r9j6h85uapu8ev8fpbfs086gvqa9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAauVJ1U6b5dgiXYOLyhWIA7cFNN3TsR1A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "250120900267-4pe6r9j6h85uapu8ev8fpbfs086gvqa9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
