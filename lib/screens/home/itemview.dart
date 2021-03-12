@@ -30,7 +30,7 @@ class ItemView extends StatelessWidget {
               child: Text("Location",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 30.0,
+                  fontSize: 25.0,
                   color: Colors.blue,
                 ),
               )
