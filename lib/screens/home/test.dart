@@ -1,228 +1,183 @@
 import 'package:flutter/material.dart';
+import 'package:getwidget/getwidget.dart';
 
-
-class AskHelp extends StatefulWidget {
+class Women extends StatefulWidget {
   @override
-  AskHelpState createState() => new AskHelpState();
+  _WomenState createState() => _WomenState();
 }
 
-class AskHelpState extends State<AskHelp> {
-  double screenHeight;
-  var scaffoldKey = GlobalKey<ScaffoldState>();
+class _WomenState extends State<Women> {
   @override
   Widget build(BuildContext context) {
-    screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-        key: scaffoldKey,
-        backgroundColor: Colors.lightBlue[50],
+
+//        backgroundColor: Color(0xff9ad7e9),
+        appBar: AppBar(
+          backgroundColor: Color(0xff9ad7e9),
+          title: Text('Women'),
+        ),
         body: Container(
-            padding: const EdgeInsets.all(20.0),
-            color: Colors.lightBlue[50],
-            child: new SingleChildScrollView(
-              child: new ConstrainedBox(
-                constraints: new BoxConstraints(),
-                child: new Container(
-                  child: new Center(
-                      child: new Column(children: [
-                        new Padding(padding: EdgeInsets.only(top: 20.0)),
-                        Image.asset('assets/images/helpme.png'),
-                        new Padding(padding: EdgeInsets.only(top: 20.0)),
-                        new TextFormField(
-                          decoration: new InputDecoration(
-                            labelText: "Full Name",
-                            fillColor: Colors.white,
-                            border: new OutlineInputBorder(
-                              borderRadius: new BorderRadius.circular(25.0),
-                              borderSide: new BorderSide(),
-                            ),
-                          ),
-                          validator: (val) {
-                            if (val.length == 0) {
-                              return "Name can not be empty";
-                            } else {
-                              return null;
-                            }
-                          },
-                          keyboardType: TextInputType.text,
-                          style: new TextStyle(
-                            fontFamily: "Poppins",
-                          ),
-                        ),
-                        new Padding(padding: EdgeInsets.only(top: 20.0)),
-                        new TextFormField(
-                          decoration: new InputDecoration(
-                            labelText: "Contact Number",
-                            fillColor: Colors.white,
-                            border: new OutlineInputBorder(
-                              borderRadius: new BorderRadius.circular(25.0),
-                              borderSide: new BorderSide(),
-                            ),
-                          ),
-                          validator: (val) {
-                            if (val.length == 0) {
-                              return "Contact number cannot be empty";
-                            } else {
-                              return null;
-                            }
-                          },
-                          keyboardType: TextInputType.number,
-                          style: new TextStyle(
-                            fontFamily: "Poppins",
-                          ),
-                        ),
-                        new Padding(padding: EdgeInsets.only(top: 20.0)),
-                        new TextFormField(
-                          decoration: new InputDecoration(
-                            labelText: "Address",
-                            fillColor: Colors.white,
-                            border: new OutlineInputBorder(
-                              borderRadius: new BorderRadius.circular(25.0),
-                              borderSide: new BorderSide(),
-                            ),
-                          ),
-                          validator: (val) {
-                            if (val.length == 0) {
-                              return "Address cannot be empty";
-                            } else {
-                              return null;
-                            }
-                          },
-                          keyboardType: TextInputType.multiline,
-                          maxLines: 3,
-                          style: new TextStyle(
-                            fontFamily: "Poppins",
-                          ),
-                        ),
-                        new Padding(padding: EdgeInsets.only(top: 20.0)),
-                        new TextFormField(
-                          decoration: new InputDecoration(
-                            labelText: "What help do you need?",
-                            fillColor: Colors.white,
-                            border: new OutlineInputBorder(
-                              borderRadius: new BorderRadius.circular(25.0),
-                              borderSide: new BorderSide(),
-                            ),
-                          ),
-                          validator: (val) {
-                            if (val.length == 0) {
-                              return "Problem cannot be empty";
-                            } else {
-                              return null;
-                            }
-                          },
-                          keyboardType: TextInputType.multiline,
-                          maxLines: 3,
-                          style: new TextStyle(
-                            fontFamily: "Poppins",
-                          ),
-                        ),
-                        // new Padding(padding: EdgeInsets.only(top: 20.0)),
-                        // Row(
-                        //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        //     children: [
-                        //       Container(
-                        //         height: 55,
-                        //         width: MediaQuery.of(context).size.width / 2,
-                        //         decoration: BoxDecoration(
-                        //           border:
-                        //               Border.all(color: Colors.black45, width: 1),
-                        //           borderRadius: BorderRadius.circular(25.0),
-                        //         ),
-                        //         child: Row(
-                        //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        //           children: [
-                        //             DropDownButtonGender(),
-                        //           ],
-                        //         ),
-                        //       ),
-                        //     ]),
-                        new Padding(padding: EdgeInsets.only(top: 20.0)),
-                        RaisedButton(
-                          child: Text('Send'),
-                          color: Colors.blue[100],
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18),
-                              side: BorderSide(color: Colors.black)),
-                          onPressed: () {
-                            showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return Dialog(
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(20.0)),
-                                    child: Container(
-                                      height: 200,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(12.0),
-                                        child: Column(
-                                          mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                          crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                          children: [
-                                            TextField(
-                                              decoration: InputDecoration(
-                                                  border: InputBorder.none,
-                                                  hintMaxLines: 3,
-                                                  hintText:
-                                                  'Your request has been sent. You\'ll recieve a notification soon if someone chooses to help you. '),
-                                            ),
-                                            SizedBox(
-                                              width: 320.0,
-                                              child: RaisedButton(
-                                                onPressed: () {},
-                                                child: Text(
-                                                  "Okay",
-                                                  style: TextStyle(
-                                                      color: Colors.white),
-                                                ),
-                                                color: const Color(0xFF1BC0C5),
-                                              ),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  );
-                                });
-                          },
-                        ),
-                      ])),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomLeft,
+              colors: [Colors.blue[200], Colors.blue[50]],
+            ),
+          ),
+          child: ListView(children: [
+            Column(
+              children: [
+                Image(
+                  image: AssetImage('images/woman.png'),
+                  height: 300,
+                  width: 300,
                 ),
-              ),
-            )));
-  }
-}
-
-class DropDownButtonGender extends StatefulWidget {
-  DropDownButtonGender({Key key}) : super(key: key);
-
-  @override
-  _DropDownButtonGenderState createState() => _DropDownButtonGenderState();
-}
-
-class _DropDownButtonGenderState extends State<DropDownButtonGender> {
-  String dropdownValue = 'Male';
-
-  @override
-  Widget build(BuildContext context) {
-    return DropdownButton<String>(
-      value: dropdownValue,
-      icon: Icon(Icons.arrow_downward),
-      iconSize: 24,
-      elevation: 16,
-      onChanged: (String newValue) {
-        setState(() {
-          dropdownValue = newValue;
-        });
-      },
-      items: <String>['Male', 'Female', 'Others']
-          .map<DropdownMenuItem<String>>((String value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(value, style: TextStyle(color: Colors.black54)),
-        );
-      }).toList(),
-    );
+                // GFAvatar(
+                //     size: GFSize.LARGE,
+                //     radius: 90,
+                //     foregroundColor: Colors.black,
+                //     backgroundImage: AssetImage("images/hobby.jpg"),
+                //     shape: GFAvatarShape.circle),
+                GFAccordion(
+                  collapsedTitleBackgroundColor: Colors.blue[100],
+                  expandedTitleBackgroundColor: Colors.transparent,
+                  contentBackgroundColor: Colors.transparent,
+                  collapsedIcon: Text(''),
+                  expandedIcon: Text(''),
+                  titlePadding: EdgeInsets.only(
+                    right: 10,
+                    left: 10,
+                  ),
+                  // title: ' Role of Women',
+                  // content:
+                  //     'Women are the epitome of strength, love, sacrifice and courage. The role of women in today’s world has changed significantly and for better. Women are now self-sufficient, well aware and financially independent. They have attained immense success '
+                  titleChild: ListTile(
+                    leading: ImageIcon(
+                      AssetImage("images/l.png"),
+                      size: 32,
+                    ),
+                    title: Text(
+                      'Women',
+                      style:
+                      TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+                    ),
+                  ),
+                  contentPadding: EdgeInsets.only(left: 80),
+                  contentChild: Padding(
+                    padding: const EdgeInsets.only(right: 14),
+                    child: Text(
+                      'Women are the epitome of strength, love, sacrifice and courage. The role of women in today’s world has changed significantly and for better. Women are now self-sufficient, well aware and financially independent. They have attained immense success ',
+                      style: TextStyle(fontSize: 14),
+                      textAlign: TextAlign.justify,
+                    ),
+                  ),
+                ),
+                GFAccordion(
+                  collapsedTitleBackgroundColor: Colors.blue[100],
+                  expandedTitleBackgroundColor: Colors.transparent,
+                  contentBackgroundColor: Colors.transparent,
+                  collapsedIcon: Text(''),
+                  expandedIcon: Text(''),
+                  titlePadding: EdgeInsets.only(
+                    right: 10,
+                    left: 10,
+                  ),
+                  // title: 'Challenges they face',
+                  // content:
+                  //     'Women have been trying to break away from norms and standards set by society. They have been marching for  the adage glass ceiling is still quite prevalent'
+                  titleChild: ListTile(
+                    leading: ImageIcon(
+                      AssetImage('images/cha.png'),
+                      size: 32,
+                    ),
+                    title: Text(
+                      'Challenges they face',
+                      style:
+                      TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+                    ),
+                  ),
+                  contentPadding: EdgeInsets.only(left: 80),
+                  contentChild: Padding(
+                    padding: const EdgeInsets.only(right: 14),
+                    child: Text(
+                      'Women have been trying to break away from norms and standards set by society. They have been marching for  the adage glass ceiling is still quite prevalent',
+                      style: TextStyle(fontSize: 14),
+                      textAlign: TextAlign.justify,
+                    ),
+                  ),
+                ),
+                GFAccordion(
+                  collapsedTitleBackgroundColor: Colors.blue[100],
+                  expandedTitleBackgroundColor: Colors.transparent,
+                  contentBackgroundColor: Colors.transparent,
+                  collapsedIcon: Text(''),
+                  expandedIcon: Text(''),
+                  titlePadding: EdgeInsets.only(
+                    right: 10,
+                    left: 10,
+                  ),
+                  // title: ' NGO',
+                  // content:
+                  //     'MAKAAM is a national informal platform working to secure women farmers identity and rights in India. They address the status of women farmers in farm suicide families and various issues that women farmers are content with. MAKAAM provides support and empowerment to farm suicide affected families for the women to continue with their lives,'
+                  titleChild: ListTile(
+                    leading: ImageIcon(
+                      AssetImage('images/helpme.png'),
+                      size: 32,
+                    ),
+                    title: Text(
+                      'NGO',
+                      style:
+                      TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+                    ),
+                  ),
+                  contentPadding: EdgeInsets.only(left: 80),
+                  contentChild: Padding(
+                    padding: const EdgeInsets.only(right: 14),
+                    child: Text(
+                      'MAKAAM is a national informal platform working to secure women farmers identity and rights in India. They address the status of women farmers in farm suicide families and various issues that women farmers are content with. MAKAAM provides support and empowerment to farm suicide affected families for the women to continue with their lives,',
+                      style: TextStyle(fontSize: 14),
+                      textAlign: TextAlign.justify,
+                    ),
+                  ),
+                ),
+                GFAccordion(
+                  collapsedTitleBackgroundColor: Colors.blue[100],
+                  expandedTitleBackgroundColor: Colors.transparent,
+                  contentBackgroundColor: Colors.transparent,
+                  collapsedIcon: Text(''),
+                  expandedIcon: Text(''),
+                  titlePadding: EdgeInsets.only(
+                    right: 10,
+                    left: 10,
+                  ),
+                  // title: 'Steps to Empower them',
+                  // content:
+                  //     'Create a safe space: Women in South Asia often have nowhere to gather with other women and talk about issues like gender equity, women’s right women to gather and learn.',
+                  //
+                  titleChild: ListTile(
+                    leading: ImageIcon(
+                      AssetImage('images/blood.png'),
+                      size: 32,
+                    ),
+                    title: Text(
+                      'Steps to Empower them',
+                      style:
+                      TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+                    ),
+                  ),
+                  contentPadding: EdgeInsets.only(left: 80),
+                  contentChild: Padding(
+                    padding: const EdgeInsets.only(right: 14),
+                    child: Text(
+                      'Create a safe space: Women in South Asia often have nowhere to gather with other women and talk about issues like gender equity, women’s right women to gather and learn.',
+                      style: TextStyle(fontSize: 14),
+                      textAlign: TextAlign.justify,
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ]),
+        ));
   }
 }

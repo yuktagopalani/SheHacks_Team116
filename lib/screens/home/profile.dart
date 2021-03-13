@@ -226,129 +226,18 @@ class _ProfileState extends State<Profile> {
 
                             }
                         ),
-//                      GestureDetector(child: Text("Mark as Done",
-//                        style: TextStyle(
-//                          fontSize: 15.0,
-//                        ),
-//                      ),
-//                        onTap: (){
-//                                      setState(() {
-//                                        deleteUser(document.id);
-//                                      });
-//                        },
-//                      ),
+
                       ),
                     ),
-//                  Container(
-//                    padding: EdgeInsets.fromLTRB(20, 30, 20, 10),
-//                    height: 120,
-//                    width: double.maxFinite,
-//                    child: GestureDetector(
-//                      onTap: (){
-//                        Navigator.push(
-//                          context,
-//                          MaterialPageRoute(builder: (context) => RequestView(need: need,)),
-//                        );
-//                      },
-//                      child: Card(
-////                      title: Text(document['type']),
-////                      subtitle: Icon(Icons.delete),
-//                        color: Color(0xffE3CAEA),
-//                        elevation: 14,
-//                        child: ListTile(title:Text(document['type']) ,
-//                          subtitle: Row(
-//                            children: [
-//                              SizedBox(
-//                                width: 150.0,
-//                              ),
-//                              Container(
-//                                width: 150.0,
-////                                  height: 10,
-//                                child: RaisedButton(
-//                                  onPressed: (){
-//                                    setState(() {
-//                                      deleteUser(document.id);
-//                                    });
-//                                  },
-//                                  elevation: 5.0,
-//                                  color: Colors.blue,
-//                                  child: Padding(
-//                                    padding: const EdgeInsets.all(8.0),
-//
-//                                    child: Text("Mark As Done"),
-//                                  ),
-//                                ),
-//                              ),
-////                                Icon(Icons.)
-//
-//                            ],
-//                          ),
-//                        )
-//
-////                      Center(child: Text(document['type'])),
-//                      ),
-//                    ),
-//                  ),
                   ]) : Container();
                 }).toList(),
               );
             },
           ),
         ),
-//        floatingActionButton: FloatingActionButton(
-//            backgroundColor: Color(0xff9ad7e9),
-//            elevation: 10.0,
-//            child: Icon(
-//              Icons.add,
-//              color: Colors.black,
-//            ),
-//            onPressed: () {
-//              Navigator.push(
-//                  context,
-//                  MaterialPageRoute(builder: (context) => TutorRegister()),
-//              );
-//
-//              // action on button press
-//            })
+
     );
-    ;
+
   }
 }
 
-// class ListItem extends StatelessWidget {
-//   String name = '';
-//   String contact = '';
-//   String type = '';
-//   String description = '';
-//   String address = '';
-//   double lat = 0.0;
-//   double long = 0.0;
-//   String uid = "";
-//   ListItem(
-//       {this.name,
-//       this.contact,
-//       this.type,
-//       this.description,
-//       this.address,
-//       this.lat,
-//       this.long,
-//       this.uid});
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       padding: EdgeInsets.fromLTRB(10, 30, 10, 10),
-//       height: 220,
-//       width: double.maxFinite,
-//       child: Card(
-//         elevation: 5,
-//         color: Theme.of(context).cardColor,
-//         shape: RoundedRectangleBorder(
-//           borderRadius: BorderRadius.vertical(
-//               bottom: Radius.circular(10.0), top: Radius.circular(2.0)),
-//         ),
-//         child: Text(type),
-//       ),
-//     );
-//   }
-// }

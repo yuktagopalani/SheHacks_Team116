@@ -9,7 +9,7 @@ class givers extends StatefulWidget {
 
 class _giversState extends State<givers> {
   var Category = [
-    {"name": "Women", "image": "images/l.png"},
+    {"name": "Women", "image": "images/woman.png"},
     {"name": "Orphan", "image": "images/dan.png"},
     {"name": "Disabled", "image": "images/cha.png"},
     {"name": "Oldage", "image": "images/old.png"},

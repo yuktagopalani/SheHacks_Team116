@@ -184,9 +184,19 @@ class _TutorRegisterState extends State<TutorRegister> {
                         borderRadius: BorderRadius.circular(18),
                         side: BorderSide(color: Colors.black)),
                       onPressed: ()async{
-                        await DatabaseService(category: 'need').addHelp(name, contact, type, address, description, lat, long,uid);
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => NewHome()));
+                        if(_formkey.currentState.validate()) {
+                          await DatabaseService(category: 'need').addHelp(
+                              name,
+                              contact,
+                              type,
+                              address,
+                              description,
+                              lat,
+                              long,
+                              uid);
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => NewHome()));
+                        }
                       }
                   ),
                   SizedBox(height: 20.0),
