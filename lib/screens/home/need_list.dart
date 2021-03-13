@@ -9,14 +9,25 @@ class NeedList extends StatefulWidget {
 class _NeedListState extends State<NeedList> {
   @override
   Widget build(BuildContext context) {
+
     final needs=Provider.of<List<Need>>(context);
     return Container(
-      color: Color(0xFFD8DDE2),
+            decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomLeft,
+          colors: [Colors.blue[200],Colors.blue[50]],
+        ),
+      ),
+//      color: Color(0xff9ad7e9),
       child: ListView.builder(
-
           itemCount: needs.length,
           itemBuilder: (context,index){
-        return NeedCard(need: needs[index]);
+        return Column(
+          children: [
+            NeedCard(need: needs[index]),
+          ],
+        );
       },
       ),
     );

@@ -12,6 +12,13 @@ class NeedCard extends StatelessWidget {
 
       padding: EdgeInsets.fromLTRB(10, 30, 10, 10),
       height: 180,
+//      decoration: BoxDecoration(
+//        gradient: LinearGradient(
+//          begin: Alignment.topLeft,
+//          end: Alignment.bottomLeft,
+//          colors: [Colors.blue[100],Colors.white],
+//        ),
+//      ),
       width: double.maxFinite,
       child: GestureDetector(
         onTap: () {
@@ -26,8 +33,11 @@ class NeedCard extends StatelessWidget {
         },
 
           child: Card(
+
               shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(55),
+
+
 //=======
 //        child: Card(
 //          elevation: 5,
@@ -38,7 +48,10 @@ class NeedCard extends StatelessWidget {
 //          child: ItemView(need: need),
 //>>>>>>> 2d3cea98f15b7439d7580feda180bfce0098408b
         ),
-              color: Colors.blue[100],
+//              color: Colors.blue[100],
+
+
+
               child: ItemView(need: need),
 
           ),

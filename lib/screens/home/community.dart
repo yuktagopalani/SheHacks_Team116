@@ -24,8 +24,16 @@ class EventsState extends State<Events> {
     screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xff9ad7e9),
+//      backgroundColor: Color(0xff9ad7e9),
       body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomLeft,
+            colors: [Colors.blue[200],Colors.blue[50]],
+          ),
+        ),
+
         child: new SingleChildScrollView(
           child: new ConstrainedBox(
             constraints: new BoxConstraints(),
@@ -94,6 +102,7 @@ class EventsState extends State<Events> {
                               borderRadius: BorderRadius.circular(55),
                             ),
                           ),
+                          SizedBox(height: 20.0,),
                           Card(
                             child: ListTile(
                               leading: Container(
@@ -130,6 +139,7 @@ class EventsState extends State<Events> {
                               borderRadius: BorderRadius.circular(55),
                             ),
                           ),
+                          SizedBox(height: 20.0,),
                           Card(
                             child: ListTile(
                               leading: Image.asset("images/marathon.png"),
@@ -160,6 +170,7 @@ class EventsState extends State<Events> {
                               borderRadius: BorderRadius.circular(55),
                             ),
                           ),
+                          SizedBox(height: 20.0,),
                           Card(
                             child: ListTile(
                               leading:

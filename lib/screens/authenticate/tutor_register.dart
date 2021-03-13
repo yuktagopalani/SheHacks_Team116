@@ -56,11 +56,22 @@ class _TutorRegisterState extends State<TutorRegister> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Need Help?"),
-        backgroundColor: Color(0xff9D44B8) ,
+        title: Text("Need Help?",
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
+        backgroundColor: Color(0xff9ad7e9),
       ),
       body: Container(
-        color: Colors.purple[100],
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomLeft,
+            colors: [Colors.blue[200],Colors.blue[50]],
+          ),
+        ),
+//        color: Colors.purple[100],
         child: ListView(
           children: <Widget>[
             Form(
@@ -139,7 +150,7 @@ class _TutorRegisterState extends State<TutorRegister> {
 //                }),
 
                   RaisedButton(
-                    color: Color(0xff9D44B8) ,
+                    color: Colors.lightBlue ,
 //                      Color(0xff9D44B8) ,
                       child: Text("Add Help"),
                       onPressed: ()async{

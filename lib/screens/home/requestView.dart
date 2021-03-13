@@ -32,7 +32,11 @@ class RequestView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Help ${need.name}"),
+        title: Text("Help ${need.name}",
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
         backgroundColor: Color(0xff9ad7e9),
       ),
       body: Container(
@@ -135,33 +139,46 @@ class RequestView extends StatelessWidget {
 //
 //                ),
               child:  Card(
-
-                elevation: 5,
-                color: Theme.of(context).cardColor,
+                color: Colors.blue[100],
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.vertical(
-                      bottom: Radius.circular(10.0),
-                      top: Radius.circular(2.0)),
+                  borderRadius: BorderRadius.circular(55),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Expanded(
-                    child: Text("${need.description}",
-                      style: TextStyle(
+                child: ListTile(
+                  contentPadding: EdgeInsets.symmetric(
+                      horizontal: 25, vertical: 20),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.vertical(
+                        bottom: Radius.circular(10.0),
+                        top: Radius.circular(2.0)),
+                  ),
+//                  child: Padding(
+//                    padding: const EdgeInsets.all(8.0),
+                    title: Expanded(
+                      child: Text("${need.description}",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
 //                    fontWeight: FontWeight.bold,
-                        fontSize: 25.0,
-                      ),
+
+                          fontSize: 25.0,
+                        ),
+//                      ),
                     ),
                   ),
                 ),
               )
 
           ),
-          RaisedButton(
-            child: Text("Reach ${need.name}"),
-              onPressed: (){
-              MapUtils.openMap(need.latitude, need.longitude);
-          })
+//          RaisedButton(
+//            child: Text("Reach ${need.name}"),
+//              onPressed: (){
+//              MapUtils.openMap(need.latitude, need.longitude);
+//          }),
+//          IconButton(icon: Icon(Icons.location_on_sharp,
+//            color: Colors.lightBlue,
+//            size: 50.0,
+//          ), onPressed:(){
+//            MapUtils.openMap(need.latitude, need.longitude);
+//          })
 
         ],
       ),

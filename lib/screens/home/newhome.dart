@@ -47,13 +47,39 @@ class NewHome extends StatelessWidget {
           ],
           bottom: TabBar(
 //            labelColor: Colors.purple[100],
-          indicatorColor: Colors.purple[100],
+          indicatorColor:  Colors.lightBlue,
             tabs: [
 
-              Tab(text: "Needs"),
-              Tab(text: "Society"),
-
-              Tab(text: "Community"),
+              Tab(
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text("Needs",
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ),
+              Tab(
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text("Blogs",
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ),
+              Tab(
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text("Community",
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

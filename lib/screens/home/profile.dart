@@ -93,7 +93,7 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Color(0xff9D44B8),
+          backgroundColor: Color(0xff9ad7e9),
           title: Text(" "),
           actions: <Widget>[
             FlatButton.icon(
@@ -102,79 +102,143 @@ class _ProfileState extends State<Profile> {
                 },
               icon: Icon(
                 Icons.logout,
-                color: Colors.white,
+                color: Colors.black,
               ),
               label: Text(
                 "Log Out",
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.black),
               ),
             )
           ],
         ),
-        body: StreamBuilder(
-          stream: FirebaseFirestore.instance.collection('need').snapshots(),
-          builder:
-              (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-            if (!snapshot.hasData) {
-              return Center(
-                child: Loading(),
-              );
-            }
+        body: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomLeft,
+              colors: [Colors.blue[200],Colors.blue[50]],
+            ),
+          ),
+          child: StreamBuilder(
+            stream: FirebaseFirestore.instance.collection('need').snapshots(),
+            builder:
+                (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+              if (!snapshot.hasData) {
+                return Center(
+                  child: Loading(),
+                );
+              }
 
-            return ListView(
-              children: snapshot.data.docs.map((document) {
+              return ListView(
+                children: snapshot.data.docs.map((document) {
 //                String
-                return document['uid']==this.uid ?Column(children: [
-                  Center(
-                    child: Column(
-                      children: [
-                        Icon(
-                          Icons.person,
-                          size: 200.0,
-                          color: Color(0xff9D44B8) ,
-                        ),
-                        Text(this.email,
+                  return document['uid']==this.uid ?Column(children: [
+                    Center(
+                      child: Column(
+                        children: [
+                          Icon(
+                            Icons.person,
+                            size: 200.0,
+                            color: Colors.lightBlue,
+                          ),
+                          Text(this.email,
+                            style: TextStyle(
+//                            color: Color(0xff9ad7e9),
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      )
+                    ),
+                    SizedBox(
+                      height: 20.0,
+                    ),
+                    RaisedButton(
+
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('Need Help ?',
                           style: TextStyle(
-                            color: Color(0xff9D44B8) ,
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold,
+                            fontSize: 30.0,
                           ),
                         ),
-                      ],
-                    )
-                  ),
-                  SizedBox(
-                    height: 20.0,
-                  ),
-                  Text("Your Needs ",
-                    style: TextStyle(
-//                      color: Color(0xff9D44B8) ,
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  ListTile(
-//                    selectedTileColor: ,
-//                    color: Color(0xffE3CAEA),
-                    leading: IconButton(
-                      icon:  Icon(Icons.preview),
-                      onPressed: (){
+                      ),
+                      color: Colors.pink[100],
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18),
+                          side: BorderSide(color: Colors.black)),
+                      onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => RequestView(need: Need(name: document["name"],type: document["type"],description: document["description"],contact: document["contact"],address: document["address"],longitude: document["longitude"],latitude: document["latitude"],uid: document["uid"]))),
+                          MaterialPageRoute(builder: (context) => TutorRegister()),
                         );
-                          }
-                    ),
-//
-                    title: Text(document['type']),
-                    trailing: GestureDetector(child: Text("Mark as Done"),
-                      onTap: (){
-                                    setState(() {
-                                      deleteUser(document.id);
-                                    });
+
                       },
                     ),
-                  ),
+                    SizedBox(
+                      height: 20.0,
+                    ),
+                    Text("Your Needs ",
+                      style: TextStyle(
+//                      color: Color(0xff9D44B8) ,
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Card(
+                      color: Colors.blue[100],
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(55),
+                      ),
+                      child: ListTile(
+//                    selectedTileColor: ,
+//                    color: Color(0xffE3CAEA),
+                        contentPadding: EdgeInsets.symmetric(
+                            horizontal: 25, vertical: 20),
+                        leading: IconButton(
+                            color: Colors.lightBlue,
+                          icon:  Icon(Icons.remove_red_eye,
+                            size: 35.0,
+                          ),
+                          onPressed: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => RequestView(need: Need(name: document["name"],type: document["type"],description: document["description"],contact: document["contact"],address: document["address"],longitude: document["longitude"],latitude: document["latitude"],uid: document["uid"]))),
+                            );
+                              }
+                        ),
+//
+                        title: Text(document['type'],
+                          style: TextStyle(
+                            fontSize: 25.0,
+                          ),
+                        ),
+                        trailing: IconButton(
+                            color: Colors.lightBlue,
+                            icon:  Icon(Icons.delete,
+                              size: 35.0,
+                            ),
+                            onPressed: (){
+                                        setState(() {
+                                          deleteUser(document.id);
+                                        });
+
+                            }
+                        ),
+//                      GestureDetector(child: Text("Mark as Done",
+//                        style: TextStyle(
+//                          fontSize: 15.0,
+//                        ),
+//                      ),
+//                        onTap: (){
+//                                      setState(() {
+//                                        deleteUser(document.id);
+//                                      });
+//                        },
+//                      ),
+                      ),
+                    ),
 //                  Container(
 //                    padding: EdgeInsets.fromLTRB(20, 30, 20, 10),
 //                    height: 120,
@@ -225,25 +289,27 @@ class _ProfileState extends State<Profile> {
 //                      ),
 //                    ),
 //                  ),
-                ]) : Container();
-              }).toList(),
-            );
-          },
-        ),
-        floatingActionButton: FloatingActionButton(
-            backgroundColor: Color(0xff9D44B8),
-            elevation: 10.0,
-            child: Icon(
-              Icons.add,
-            ),
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => TutorRegister()),
+                  ]) : Container();
+                }).toList(),
               );
-
-              // action on button press
-            })
+            },
+          ),
+        ),
+//        floatingActionButton: FloatingActionButton(
+//            backgroundColor: Color(0xff9ad7e9),
+//            elevation: 10.0,
+//            child: Icon(
+//              Icons.add,
+//              color: Colors.black,
+//            ),
+//            onPressed: () {
+//              Navigator.push(
+//                  context,
+//                  MaterialPageRoute(builder: (context) => TutorRegister()),
+//              );
+//
+//              // action on button press
+//            })
     );
     ;
   }
