@@ -43,7 +43,7 @@ class NewHome extends StatelessWidget {
                   );
                 },
                 icon: Icon(Icons.person),
-                label: Text("Profile")),
+                label: Text("My Needs")),
           ],
           bottom: TabBar(
 //            labelColor: Colors.purple[100],

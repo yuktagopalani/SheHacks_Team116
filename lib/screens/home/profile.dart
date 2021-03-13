@@ -18,7 +18,7 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  final AuthService _aut = AuthService();
+
   User user;
   String uid;
   String email='';
@@ -91,6 +91,7 @@ class _ProfileState extends State<Profile> {
   }
   @override
   Widget build(BuildContext context) {
+    final AuthService _aut = AuthService();
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Color(0xff9ad7e9),
@@ -133,59 +134,17 @@ class _ProfileState extends State<Profile> {
                 children: snapshot.data.docs.map((document) {
 //                String
                   return document['uid']==this.uid ?Column(children: [
-                    Center(
-                      child: Column(
-                        children: [
-                          Icon(
-                            Icons.person,
-                            size: 200.0,
-                            color: Colors.lightBlue,
-                          ),
-                          Text(this.email,
-                            style: TextStyle(
-//                            color: Color(0xff9ad7e9),
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      )
-                    ),
+
                     SizedBox(
                       height: 20.0,
                     ),
-                    RaisedButton(
-
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text('Need Help ?',
-                          style: TextStyle(
-                            fontSize: 30.0,
-                          ),
-                        ),
-                      ),
-                      color: Colors.pink[100],
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18),
-                          side: BorderSide(color: Colors.black)),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => TutorRegister()),
-                        );
-
-                      },
-                    ),
-                    SizedBox(
-                      height: 20.0,
-                    ),
-                    Text("Your Needs ",
-                      style: TextStyle(
-//                      color: Color(0xff9D44B8) ,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+//                    Text("Your Needs ",
+//                      style: TextStyle(
+////                      color: Color(0xff9D44B8) ,
+//                        fontSize: 20.0,
+//                        fontWeight: FontWeight.bold,
+//                      ),
+//                    ),
                     Card(
                       color: Colors.blue[100],
                       shape: RoundedRectangleBorder(
@@ -235,9 +194,64 @@ class _ProfileState extends State<Profile> {
             },
           ),
         ),
+        floatingActionButton: FloatingActionButton(
+            backgroundColor: Colors.lightBlue,
+            elevation: 10.0,
+            child: Icon(
+              Icons.add,
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TutorRegister()),
+              );
+              // action on button press
+            })
 
     );
 
   }
 }
-
+//Center(
+//child: Column(
+//children: [
+//Icon(
+//Icons.person,
+//size: 200.0,
+//color: Colors.lightBlue,
+//),
+//Text(this.email,
+//style: TextStyle(
+////                            color: Color(0xff9ad7e9),
+//fontSize: 20.0,
+//fontWeight: FontWeight.bold,
+//),
+//),
+//],
+//)
+//),
+//SizedBox(
+//height: 20.0,
+//),
+//RaisedButton(
+//
+//child: Padding(
+//padding: const EdgeInsets.all(8.0),
+//child: Text('Need Help ?',
+//style: TextStyle(
+//fontSize: 30.0,
+//),
+//),
+//),
+//color: Colors.pink[100],
+//shape: RoundedRectangleBorder(
+//borderRadius: BorderRadius.circular(18),
+//side: BorderSide(color: Colors.black)),
+//onPressed: () {
+//Navigator.push(
+//context,
+//MaterialPageRoute(builder: (context) => TutorRegister()),
+//);
+//
+//},
+//),
