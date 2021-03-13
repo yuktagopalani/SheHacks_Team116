@@ -3,24 +3,37 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hobbyhub/modules/need.dart';
 import 'package:hobbyhub/screens/authenticate/tutor_register.dart';
+import 'package:hobbyhub/shared/loading.dart';
+import 'requestView.dart';
+import 'package:hobbyhub/services/auth.dart';
+
 
 class Profile extends StatefulWidget {
+//  final Need need;
+////  Profile({this.need});
+//  Profile({ Key key, this.need }): super(key: key);
   @override
   _ProfileState createState() => _ProfileState();
 }
 
 class _ProfileState extends State<Profile> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  final AuthService _aut = AuthService();
   User user;
   String uid;
+  String email='';
   List<Need> list = [];
+
 
   @override
   void getuser() async {
     final FirebaseAuth auth = FirebaseAuth.instance;
     final User user = auth.currentUser;
     this.uid = user.uid;
+    this.email=user.email;
+
   }
+
   //
   // void getdata() async {
   //   final CollectionReference temp =
@@ -67,7 +80,15 @@ class _ProfileState extends State<Profile> {
 //     getdata();
 //     super.initState();
   }
+  CollectionReference ref = FirebaseFirestore.instance.collection('need');
 
+  Future<void> deleteUser(String id) {
+    return ref
+        .doc(id)
+        .delete()
+        .then((value) => print("Need Deleted"))
+        .catchError((error) => print("Failed to delete need: $error"));
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,13 +97,15 @@ class _ProfileState extends State<Profile> {
           title: Text(" "),
           actions: <Widget>[
             FlatButton.icon(
-              onPressed: () {},
+              onPressed: ()async{
+                  await _aut.signingOut();
+                },
               icon: Icon(
-                Icons.person,
+                Icons.logout,
                 color: Colors.white,
               ),
               label: Text(
-                "profile",
+                "Log Out",
                 style: TextStyle(color: Colors.white),
               ),
             )
@@ -94,24 +117,115 @@ class _ProfileState extends State<Profile> {
               (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
             if (!snapshot.hasData) {
               return Center(
-                child: CircularProgressIndicator(),
+                child: Loading(),
               );
             }
 
             return ListView(
               children: snapshot.data.docs.map((document) {
-                return Column(children: [
-                  Container(
-                    padding: EdgeInsets.fromLTRB(20, 30, 20, 10),
-                    height: 220,
-                    width: double.maxFinite,
-                    child: Card(
-                      color: Color(0xffE3CAEA),
-                      elevation: 34,
-                      child: Center(child: Text(document['type'])),
+//                String
+                return document['uid']==this.uid ?Column(children: [
+                  Center(
+                    child: Column(
+                      children: [
+                        Icon(
+                          Icons.person,
+                          size: 200.0,
+                          color: Color(0xff9D44B8) ,
+                        ),
+                        Text(this.email,
+                          style: TextStyle(
+                            color: Color(0xff9D44B8) ,
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    )
+                  ),
+                  SizedBox(
+                    height: 20.0,
+                  ),
+                  Text("Your Needs ",
+                    style: TextStyle(
+//                      color: Color(0xff9D44B8) ,
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                ]);
+                  ListTile(
+//                    selectedTileColor: ,
+//                    color: Color(0xffE3CAEA),
+                    leading: IconButton(
+                      icon:  Icon(Icons.preview),
+                      onPressed: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => RequestView(need: Need(name: document["name"],type: document["type"],description: document["description"],contact: document["contact"],address: document["address"],longitude: document["longitude"],latitude: document["latitude"],uid: document["uid"]))),
+                        );
+                          }
+                    ),
+//
+                    title: Text(document['type']),
+                    trailing: GestureDetector(child: Text("Mark as Done"),
+                      onTap: (){
+                                    setState(() {
+                                      deleteUser(document.id);
+                                    });
+                      },
+                    ),
+                  ),
+//                  Container(
+//                    padding: EdgeInsets.fromLTRB(20, 30, 20, 10),
+//                    height: 120,
+//                    width: double.maxFinite,
+//                    child: GestureDetector(
+//                      onTap: (){
+//                        Navigator.push(
+//                          context,
+//                          MaterialPageRoute(builder: (context) => RequestView(need: need,)),
+//                        );
+//                      },
+//                      child: Card(
+////                      title: Text(document['type']),
+////                      subtitle: Icon(Icons.delete),
+//                        color: Color(0xffE3CAEA),
+//                        elevation: 14,
+//                        child: ListTile(title:Text(document['type']) ,
+//                          subtitle: Row(
+//                            children: [
+//                              SizedBox(
+//                                width: 150.0,
+//                              ),
+//                              Container(
+//                                width: 150.0,
+////                                  height: 10,
+//                                child: RaisedButton(
+//                                  onPressed: (){
+//                                    setState(() {
+//                                      deleteUser(document.id);
+//                                    });
+//                                  },
+//                                  elevation: 5.0,
+//                                  color: Colors.blue,
+//                                  child: Padding(
+//                                    padding: const EdgeInsets.all(8.0),
+//
+//                                    child: Text("Mark As Done"),
+//                                  ),
+//                                ),
+//                              ),
+////                                Icon(Icons.)
+//
+//                            ],
+//                          ),
+//                        )
+//
+////                      Center(child: Text(document['type'])),
+//                      ),
+//                    ),
+//                  ),
+                ]) : Container();
               }).toList(),
             );
           },
