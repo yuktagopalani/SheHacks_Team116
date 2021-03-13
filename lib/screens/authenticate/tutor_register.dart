@@ -57,76 +57,79 @@ class _TutorRegisterState extends State<TutorRegister> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Need Help?"),
+        backgroundColor: Color(0xff9D44B8) ,
       ),
-      body: ListView(
-        children: <Widget>[
-          Form(
-            key: _formkey,
-            child: Column(
-              children: <Widget>[
-                SizedBox(height: 20.0),
-                TextFormField(
-                  decoration: InputDecoration(
-                    fillColor: Colors.grey,
-                    focusColor: Colors.grey,
-                    hintText: 'Name',
+      body: Container(
+        color: Colors.purple[100],
+        child: ListView(
+          children: <Widget>[
+            Form(
+              key: _formkey,
+              child: Column(
+                children: <Widget>[
+                  SizedBox(height: 20.0),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      fillColor: Colors.grey,
+                      focusColor: Colors.grey,
+                      hintText: 'Name',
+                    ),
+                    validator: (val) => val.isEmpty ? 'Enter Name' : null,
+                    onChanged: (val){
+                      setState(() => name=val);
+                    },
                   ),
-                  validator: (val) => val.isEmpty ? 'Enter Name' : null,
-                  onChanged: (val){
-                    setState(() => name=val);
-                  },
-                ),
-                SizedBox(height: 20.0),
-                TextFormField(
-                  decoration: InputDecoration(
-                    fillColor: Colors.grey,
-                    focusColor: Colors.grey,
-                    hintText: 'Contact Number',
+                  SizedBox(height: 20.0),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      fillColor: Colors.grey,
+                      focusColor: Colors.grey,
+                      hintText: 'Contact Number',
+                    ),
+                    validator: (val) => val.isEmpty ? 'Enter Contact Number' : null,
+                    onChanged: (val){
+                      setState(() => contact=val);
+                    },
                   ),
-                  validator: (val) => val.isEmpty ? 'Enter Contact Number' : null,
-                  onChanged: (val){
-                    setState(() => contact=val);
-                  },
-                ),
-                SizedBox(height: 20.0),
-                TextFormField(
-                  decoration: InputDecoration(
-                    fillColor: Colors.grey,
-                    focusColor: Colors.grey,
-                    hintText: 'Your Need',
+                  SizedBox(height: 20.0),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      fillColor: Colors.grey,
+                      focusColor: Colors.grey,
+                      hintText: 'Your Need',
+                    ),
+                    validator: (val) => val.isEmpty ? 'Enter your need' : null,
+                    onChanged: (val){
+                      setState(() => type=val);
+                    },
                   ),
-                  validator: (val) => val.isEmpty ? 'Enter your need' : null,
-                  onChanged: (val){
-                    setState(() => type=val);
-                  },
-                ),
-                SizedBox(height: 20.0),
-                TextFormField(
-                  decoration: InputDecoration(
-                    fillColor: Colors.grey,
-                    focusColor: Colors.grey,
-                    hintText: 'Description',
+                  SizedBox(height: 20.0),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      fillColor: Colors.grey,
+                      focusColor: Colors.grey,
+                      hintText: 'Description',
+                    ),
+                    validator: (val) => val.isEmpty ? 'Add a description' : null,
+                    onChanged: (val){
+                      setState(() => description=val);
+                    },
                   ),
-                  validator: (val) => val.isEmpty ? 'Add a description' : null,
-                  onChanged: (val){
-                    setState(() => description=val);
-                  },
-                ),
 
 
-                SizedBox(height: 20.0),
-                TextFormField(
-                  decoration: InputDecoration(
-                    fillColor: Colors.grey,
-                    focusColor: Colors.grey,
-                    hintText: 'Address',
+                  SizedBox(height: 20.0),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      fillColor: Colors.grey,
+                      focusColor: Colors.grey,
+                      hintText: 'Address',
+                    ),
+                    validator: (val) => val.isEmpty ? 'Enter your Address' : null,
+                    onChanged: (val){
+                      setState(() => address=val);
+                    },
                   ),
-                  validator: (val) => val.isEmpty ? 'Enter your Address' : null,
-                  onChanged: (val){
-                    setState(() => address=val);
-                  },
-                ),
-                SizedBox(height: 20.0),
+                  SizedBox(height: 20.0),
 //                ElevatedButton(
 //                    child: Text("Location"),
 //                    onPressed:()async{
@@ -135,30 +138,32 @@ class _TutorRegisterState extends State<TutorRegister> {
 //
 //                }),
 
-                ElevatedButton(
-//                    color: Colors.pink[400],
-                    child: Text("Add Help"),
-                    onPressed: ()async{
-                        await DatabaseService(category: 'need').addHelp(name, contact, type, address, description, lat, long,uid);
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => NewHome()));
+                  RaisedButton(
+                    color: Color(0xff9D44B8) ,
+//                      Color(0xff9D44B8) ,
+                      child: Text("Add Help"),
+                      onPressed: ()async{
+                          await DatabaseService(category: 'need').addHelp(name, contact, type, address, description, lat, long,uid);
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => NewHome()));
 
-                    }),
-                SizedBox(height: 20.0),
-                Text(error,
-                  style: TextStyle(
-                    color: Colors.red,
-                  ),
-                )
-              ],
+                      }),
+                  SizedBox(height: 20.0),
+                  Text(error,
+                    style: TextStyle(
+                      color: Colors.red,
+                    ),
+                  )
+                ],
+              ),
             ),
-          ),
 
-        ],
+          ],
 //        child: Container(
 //          padding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 20.0),
 //          child:
 //        ),
+        ),
       ),
     );
   }

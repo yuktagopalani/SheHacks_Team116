@@ -3,7 +3,9 @@ import 'package:hobbyhub/screens/authenticate/tutor_register.dart';
 import 'package:hobbyhub/screens/home/givers.dart';
 import 'package:hobbyhub/screens/home/profile.dart';
 import 'package:hobbyhub/screens/home/showtutor.dart';
+import 'package:hobbyhub/screens/home/test.dart';
 import 'package:hobbyhub/services/auth.dart';
+import 'package:hobbyhub/screens/home/community.dart';
 class NewHome extends StatelessWidget {
   final AuthService _auth = AuthService();
   @override
@@ -12,7 +14,12 @@ class NewHome extends StatelessWidget {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Welcome!"),
+          backgroundColor: Color(0xff9ad7e9),
+          title: Text("Welcome!",
+            style: TextStyle(
+              color: Colors.black,
+            ),
+          ),
           actions: <Widget>[
 //              FlatButton.icon(onPressed: ()async{
 //                  await _auth.signingOut();
@@ -24,22 +31,28 @@ class NewHome extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => Profile()),
               );
 
-              }, icon: Icon(Icons.person), label: Text("Profile")),
+              }, icon: Icon(Icons.person,color: Colors.white,), label: Text("Profile",style: TextStyle(color: Colors.white),),),
           ],
           bottom: TabBar(
+//            labelColor: Colors.purple[100],
+          indicatorColor: Colors.purple[100],
             tabs: [
-              Tab(text: "Needs"),
+              Tab(text: "Needs",),
               Tab(text: "Givers"),
               Tab(text: "Community"),
             ],
           ),
         ),
-        body: TabBarView(
-          children: [
-            ShowTutor(category: 'need'),
-            givers(),
-            Text("Hello"),
-          ],
+        body: Container(
+//          color: Colors.purple[100],
+          child: TabBarView(
+
+            children: [
+              ShowTutor(category: 'need'),
+              givers(),
+              Events(),
+            ],
+          ),
         ),
       ),
     );

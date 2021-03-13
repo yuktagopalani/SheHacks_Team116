@@ -8,43 +8,58 @@ class ItemView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
+//        Container(
+//          height: 30.0,
+//          child: Image.asset('images/heartsymbol.png',
+//          ),
+//        ),
+
         SizedBox(height: 20.0),
 //        Expanded(
 //          child:
-          Text("${need.name} is in need of ${need.type}",
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20.0,
-          ),),
+          Expanded(
+            child: Text("${need.name} is in need of ${need.type}",
+            style: TextStyle(
+//              fontWeight: FontWeight.bold,
+                fontSize: 20.0,
+//            color: Colors.purple,
+            ),),
+          ),
 //        ),
-        SizedBox(height: 20.0),
+
         Row(
           children: <Widget>[
             SizedBox(
-              width: 50.0,
+              width: 120.0,
             ),
            GestureDetector(
             onTap: (){
               MapUtils.openMap(need.latitude, need.longitude);
             },
-              child: Text("Location",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 25.0,
-                  color: Colors.blue,
-                ),
-              )
+             child: Icon(Icons.location_on_sharp,
+               color: Colors.lightBlue,
+               size: 40.0,
+             ),
+
+//              child: Text("Location",
+//                style: TextStyle(
+//                  fontWeight: FontWeight.bold,
+//                  fontSize: 25.0,
+//                  color: Colors.purple[300],
+//                ),
+//              )
           ),
             SizedBox(
               width: 50.0,
             ),
             Icon(
               Icons.call,
-              color: Colors.blue,
-              size: 30.0,
+              color: Colors.lightBlue,
+              size: 40.0,
             ),
           ],
         ),
+                SizedBox(height: 30.0),
       ],
     );
   }

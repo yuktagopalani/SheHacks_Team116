@@ -33,8 +33,11 @@ class RequestView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Help ${need.name}"),
+        backgroundColor: Color(0xff9ad7e9),
       ),
-      body: Container(child: Column(
+      body: Container(
+        color:  Color(0xff9ad7e9),
+        child: Column(
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.all(8.0),

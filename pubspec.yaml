@@ -36,6 +36,10 @@ dependencies:
   flutter_spinkit: "^4.1.2"
   geolocator: ^6.2.1
   url_launcher: ^5.0.0
+  add_2_calendar: ^1.4.0
+#  image_picker: ^0.7.2+1
+#  firebase_storage: ^6.0.0
+#  permission_handler: ^6.1.0
 
 dev_dependencies:
   flutter_test:
