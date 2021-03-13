@@ -124,10 +124,13 @@ class RequestView extends StatelessWidget {
                   ),
 
                 ),
-                Text("${need.address}",
-                  style: TextStyle(
+                Expanded(
+                  
+                  child: Text("${need.address}",
+                    style: TextStyle(
 //                    fontWeight: FontWeight.bold,
-                    fontSize: 25.0,
+                      fontSize: 25.0,
+                    ),
                   ),
                 )
               ],
