@@ -10,32 +10,36 @@ class _WomenState extends State<Women> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Color(0xff9ad7e9),
         appBar: AppBar(
+          backgroundColor: Color(0xff9ad7e9),
           title: Text('Women'),
         ),
         body: ListView(children: [
           Column(
             children: [
-              SizedBox(
-                height: 15,
+              Image(
+                image: AssetImage('images/lt.png'),
+                height: 300,
+                width: 300,
               ),
-              GFAvatar(
-                  size: GFSize.LARGE,
-                  radius: 90,
-                  foregroundColor: Colors.black,
-                  backgroundImage: AssetImage("images/hobby.jpg"),
-                  shape: GFAvatarShape.circle),
+              // GFAvatar(
+              //     size: GFSize.LARGE,
+              //     radius: 90,
+              //     foregroundColor: Colors.black,
+              //     backgroundImage: AssetImage("images/hobby.jpg"),
+              //     shape: GFAvatarShape.circle),
               GFAccordion(
                 // title: ' Role of Women',
                 // content:
                 //     'Women are the epitome of strength, love, sacrifice and courage. The role of women in today’s world has changed significantly and for better. Women are now self-sufficient, well aware and financially independent. They have attained immense success '
                 titleChild: ListTile(
                   leading: ImageIcon(
-                    AssetImage("images/copy.JPEG"),
+                    AssetImage("images/l.png"),
                     size: 32,
                   ),
                   title: Text(
-                    'Role of Women',
+                    'Women',
                     style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
                   ),
                 ),
