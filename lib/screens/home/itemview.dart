@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hobbyhub/modules/need.dart';
 import 'package:hobbyhub/services/googlemaps.dart';
+import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
 class ItemView extends StatelessWidget {
   final Need need;
   ItemView({this.need});
@@ -52,10 +53,15 @@ class ItemView extends StatelessWidget {
             SizedBox(
               width: 50.0,
             ),
-            Icon(
-              Icons.call,
-              color: Colors.lightBlue,
-              size: 40.0,
+            IconButton(
+              icon: Icon(
+                Icons.call,
+                color: Colors.lightBlue,
+                size: 40.0,
+              ),
+              onPressed: (){
+                UrlLauncher.launch(('tel://${need.contact}'));
+              },
             ),
           ],
         ),

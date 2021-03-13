@@ -12,9 +12,10 @@ class NewHome extends StatelessWidget {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        backgroundColor: Color(0xff9ad7e9),
+//        backgroundColor: Color(0xff9ad7e9),
         appBar: AppBar(
           backgroundColor: Color(0xff9ad7e9),
+//        backgroundColor: Colors.transparent,
           title: Text(
             "Welcome!",
             style: TextStyle(
@@ -85,6 +86,13 @@ class NewHome extends StatelessWidget {
           ),
         ),
         body: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomLeft,
+              colors: [Colors.blue[200],Colors.blue[50]],
+            ),
+          ),
 //          color: Colors.purple[100],
           child: TabBarView(
             children: [

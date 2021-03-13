@@ -64,14 +64,14 @@ class _TutorRegisterState extends State<TutorRegister> {
         backgroundColor: Color(0xff9ad7e9),
       ),
       body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomLeft,
-            colors: [Colors.blue[200],Colors.blue[50]],
-          ),
-        ),
-//        color: Colors.purple[100],
+//        decoration: BoxDecoration(
+//          gradient: LinearGradient(
+//            begin: Alignment.topLeft,
+//            end: Alignment.bottomLeft,
+//            colors: [Colors.blue[200],Colors.blue[50]],
+//          ),
+//        ),
+        color: Colors.white,
         child: ListView(
           children: <Widget>[
             Form(
@@ -80,10 +80,13 @@ class _TutorRegisterState extends State<TutorRegister> {
                 children: <Widget>[
                   SizedBox(height: 20.0),
                   TextFormField(
-                    decoration: InputDecoration(
-                      fillColor: Colors.grey,
-                      focusColor: Colors.grey,
-                      hintText: 'Name',
+                    decoration: new InputDecoration(
+                      labelText: "Name",
+                      fillColor: Colors.white,
+                      border: new OutlineInputBorder(
+                        borderRadius: new BorderRadius.circular(25.0),
+                        borderSide: new BorderSide(),
+                      ),
                     ),
                     validator: (val) => val.isEmpty ? 'Enter Name' : null,
                     onChanged: (val){
@@ -92,10 +95,13 @@ class _TutorRegisterState extends State<TutorRegister> {
                   ),
                   SizedBox(height: 20.0),
                   TextFormField(
-                    decoration: InputDecoration(
-                      fillColor: Colors.grey,
-                      focusColor: Colors.grey,
-                      hintText: 'Contact Number',
+                    decoration: new InputDecoration(
+                      labelText: "Contact No.",
+                      fillColor: Colors.white,
+                      border: new OutlineInputBorder(
+                        borderRadius: new BorderRadius.circular(25.0),
+                        borderSide: new BorderSide(),
+                      ),
                     ),
                     validator: (val) => val.isEmpty ? 'Enter Contact Number' : null,
                     onChanged: (val){
@@ -104,10 +110,13 @@ class _TutorRegisterState extends State<TutorRegister> {
                   ),
                   SizedBox(height: 20.0),
                   TextFormField(
-                    decoration: InputDecoration(
-                      fillColor: Colors.grey,
-                      focusColor: Colors.grey,
-                      hintText: 'Your Need',
+                    decoration: new InputDecoration(
+                      labelText: "Need of :",
+                      fillColor: Colors.white,
+                      border: new OutlineInputBorder(
+                        borderRadius: new BorderRadius.circular(25.0),
+                        borderSide: new BorderSide(),
+                      ),
                     ),
                     validator: (val) => val.isEmpty ? 'Enter your need' : null,
                     onChanged: (val){
@@ -116,29 +125,40 @@ class _TutorRegisterState extends State<TutorRegister> {
                   ),
                   SizedBox(height: 20.0),
                   TextFormField(
-                    decoration: InputDecoration(
-                      fillColor: Colors.grey,
-                      focusColor: Colors.grey,
-                      hintText: 'Description',
+
+                    decoration: new InputDecoration(
+                      labelText: "Description",
+                      fillColor: Colors.white,
+                      border: new OutlineInputBorder(
+                        borderRadius: new BorderRadius.circular(25.0),
+                        borderSide: new BorderSide(),
+                      ),
                     ),
                     validator: (val) => val.isEmpty ? 'Add a description' : null,
                     onChanged: (val){
                       setState(() => description=val);
                     },
+                    keyboardType: TextInputType.multiline,
+                    maxLines: 3,
                   ),
 
 
                   SizedBox(height: 20.0),
                   TextFormField(
-                    decoration: InputDecoration(
-                      fillColor: Colors.grey,
-                      focusColor: Colors.grey,
-                      hintText: 'Address',
+                    decoration: new InputDecoration(
+                      labelText: "Address",
+                      fillColor: Colors.white,
+                      border: new OutlineInputBorder(
+                        borderRadius: new BorderRadius.circular(25.0),
+                        borderSide: new BorderSide(),
+                      ),
                     ),
                     validator: (val) => val.isEmpty ? 'Enter your Address' : null,
                     onChanged: (val){
                       setState(() => address=val);
                     },
+                    keyboardType: TextInputType.multiline,
+                    maxLines: 3,
                   ),
                   SizedBox(height: 20.0),
 //                ElevatedButton(
@@ -150,15 +170,25 @@ class _TutorRegisterState extends State<TutorRegister> {
 //                }),
 
                   RaisedButton(
-                    color: Colors.lightBlue ,
-//                      Color(0xff9D44B8) ,
-                      child: Text("Add Help"),
-                      onPressed: ()async{
-                          await DatabaseService(category: 'need').addHelp(name, contact, type, address, description, lat, long,uid);
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => NewHome()));
 
-                      }),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text('Add',
+                        style: TextStyle(
+                          fontSize: 30.0,
+                        ),
+                      ),
+                    ),
+                    color: Colors.pink[100],
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18),
+                        side: BorderSide(color: Colors.black)),
+                      onPressed: ()async{
+                        await DatabaseService(category: 'need').addHelp(name, contact, type, address, description, lat, long,uid);
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => NewHome()));
+                      }
+                  ),
                   SizedBox(height: 20.0),
                   Text(error,
                     style: TextStyle(
