@@ -30,6 +30,16 @@ class _WomenState extends State<Women> {
               //     backgroundImage: AssetImage("images/hobby.jpg"),
               //     shape: GFAvatarShape.circle),
               GFAccordion(
+                collapsedTitleBackgroundColor: Colors.blue[100],
+                expandedTitleBackgroundColor: Colors.transparent,
+                contentBackgroundColor: Colors.transparent,
+                collapsedIcon: Text(''),
+                expandedIcon: Text(''),
+                titlePadding: EdgeInsets.only(
+                  right: 10,
+                  left: 10,
+                ),
+
                 // title: ' Role of Women',
                 // content:
                 //     'Women are the epitome of strength, love, sacrifice and courage. The role of women in today’s world has changed significantly and for better. Women are now self-sufficient, well aware and financially independent. They have attained immense success '
@@ -54,12 +64,22 @@ class _WomenState extends State<Women> {
                 ),
               ),
               GFAccordion(
+                collapsedTitleBackgroundColor: Colors.blue[100],
+                expandedTitleBackgroundColor: Colors.transparent,
+                contentBackgroundColor: Colors.transparent,
+                collapsedIcon: Text(''),
+                expandedIcon: Text(''),
+                titlePadding: EdgeInsets.only(
+                  right: 10,
+                  left: 10,
+                ),
+
                 // title: 'Challenges they face',
                 // content:
                 //     'Women have been trying to break away from norms and standards set by society. They have been marching for  the adage glass ceiling is still quite prevalent'
                 titleChild: ListTile(
                   leading: ImageIcon(
-                    AssetImage('images/geekhaven.png'),
+                    AssetImage('images/cha.png'),
                     size: 32,
                   ),
                   title: Text(
@@ -78,12 +98,22 @@ class _WomenState extends State<Women> {
                 ),
               ),
               GFAccordion(
+                collapsedTitleBackgroundColor: Colors.blue[100],
+                expandedTitleBackgroundColor: Colors.transparent,
+                contentBackgroundColor: Colors.transparent,
+                collapsedIcon: Text(''),
+                expandedIcon: Text(''),
+                titlePadding: EdgeInsets.only(
+                  right: 10,
+                  left: 10,
+                ),
+
                 // title: ' NGO',
                 // content:
                 //     'MAKAAM is a national informal platform working to secure women farmers identity and rights in India. They address the status of women farmers in farm suicide families and various issues that women farmers are content with. MAKAAM provides support and empowerment to farm suicide affected families for the women to continue with their lives,'
                 titleChild: ListTile(
                   leading: ImageIcon(
-                    AssetImage('images/geekhaven.png'),
+                    AssetImage('images/helpme.png'),
                     size: 32,
                   ),
                   title: Text(
@@ -102,13 +132,23 @@ class _WomenState extends State<Women> {
                 ),
               ),
               GFAccordion(
+                collapsedTitleBackgroundColor: Colors.blue[100],
+                expandedTitleBackgroundColor: Colors.transparent,
+                contentBackgroundColor: Colors.transparent,
+                collapsedIcon: Text(''),
+                expandedIcon: Text(''),
+                titlePadding: EdgeInsets.only(
+                  right: 10,
+                  left: 10,
+                ),
+
                 // title: 'Steps to Empower them',
                 // content:
                 //     'Create a safe space: Women in South Asia often have nowhere to gather with other women and talk about issues like gender equity, women’s right women to gather and learn.',
                 //
                 titleChild: ListTile(
                   leading: ImageIcon(
-                    AssetImage('assets/images/geekhaven.png'),
+                    AssetImage('images/blood.png'),
                     size: 32,
                   ),
                   title: Text(
