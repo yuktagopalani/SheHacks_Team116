@@ -95,7 +95,11 @@ class _ProfileState extends State<Profile> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Color(0xff9ad7e9),
-          title: Text(" "),
+          title: Text("My Needs",
+            style: TextStyle(
+              color: Colors.black,
+            ),
+          ),
           actions: <Widget>[
             FlatButton.icon(
               onPressed: ()async{
