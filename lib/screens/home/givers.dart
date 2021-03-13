@@ -9,12 +9,12 @@ class givers extends StatefulWidget {
 
 class _giversState extends State<givers> {
   var Category = [
-    {"name": "Women", "image": "images/hobby.jpg"},
-    {"name": "Orphan", "image": " images/Orp.png"},
-    {"name": "Disabled", "image": " images/"},
-    {"name": "Oldage", "image": " images/"},
-    {"name": "Animals", "image": " images/"},
-    {"name": " Poverty", "image": " images/"}
+    {"name": "Women", "image": "images/l.png"},
+    {"name": "Orphan", "image": "images/dan.png"},
+    {"name": "Disabled", "image": "images/cha.png"},
+    {"name": "Oldage", "image": "images/old.png"},
+    {"name": "Animals", "image": "images/affection.png"},
+    {"name": " Poverty", "image": "images/helpme.png"}
   ];
 
   @override
@@ -56,8 +56,9 @@ class cat extends StatelessWidget {
         },
         child: Center(
           child: Card(
+            color: Colors.blue[100],
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15.0),
+              borderRadius: BorderRadius.circular(18.0),
             ),
             child: Center(
               child: Column(
@@ -65,6 +66,7 @@ class cat extends StatelessWidget {
                   children: [
                     GFAvatar(
                         size: GFSize.LARGE,
+                        radius: 50,
                         foregroundColor: Colors.black,
                         backgroundImage: AssetImage(Image),
                         shape: GFAvatarShape.circle),

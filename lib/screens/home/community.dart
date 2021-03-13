@@ -1,10 +1,11 @@
-import 'package:flutter/material.dart';
 import 'package:add_2_calendar/add_2_calendar.dart';
+import 'package:flutter/material.dart';
 
 class Events extends StatefulWidget {
   @override
   EventsState createState() => new EventsState();
 }
+
 var ear = '\u1F30D';
 
 class EventsState extends State<Events> {
@@ -72,8 +73,7 @@ class EventsState extends State<Events> {
                         children: <Widget>[
                           Card(
                             child: ListTile(
-                              leading:
-                              Image.asset("images/1056844.png"),
+                              leading: Image.asset("images/1056844.png"),
                               title: Text('Plant a tree'),
                               contentPadding: EdgeInsets.symmetric(
                                   horizontal: 25, vertical: 20),
@@ -107,8 +107,9 @@ class EventsState extends State<Events> {
                             child: ListTile(
                               leading: Container(
 //                                height: 10.0,
-                              width: 50.0,
-                                child: Image.asset("images/bicycle.png",
+                                width: 50.0,
+                                child: Image.asset(
+                                  "images/bicycle.png",
                                 ),
                               ),
                               title: Text('Use Bicycle'),
@@ -146,7 +147,6 @@ class EventsState extends State<Events> {
                               title: Text('Participate in Marathon'),
                               contentPadding: EdgeInsets.symmetric(
                                   horizontal: 25, vertical: 20),
-
                               trailing: RaisedButton(
                                 child: Text('Add'),
                                 color: Colors.pink[100],
@@ -173,8 +173,7 @@ class EventsState extends State<Events> {
                           SizedBox(height: 20.0,),
                           Card(
                             child: ListTile(
-                              leading:
-                              Image.asset("images/blood.png"),
+                              leading: Image.asset("images/blood.png"),
                               title: Text('Donate blood'),
                               contentPadding: EdgeInsets.symmetric(
                                   horizontal: 25, vertical: 20),

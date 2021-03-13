@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hobbyhub/screens/home/community.dart';
 import 'package:hobbyhub/screens/home/givers.dart';
 import 'package:hobbyhub/screens/home/profile.dart';
 import 'package:hobbyhub/screens/home/showtutor.dart';
-import 'package:hobbyhub/screens/home/test.dart';
 import 'package:hobbyhub/services/auth.dart';
-import 'package:hobbyhub/screens/home/community.dart';
 
 class NewHome extends StatelessWidget {
   final AuthService _auth = AuthService();
@@ -13,9 +12,11 @@ class NewHome extends StatelessWidget {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
+        backgroundColor: Color(0xff9ad7e9),
         appBar: AppBar(
           backgroundColor: Color(0xff9ad7e9),
-          title: Text("Welcome!",
+          title: Text(
+            "Welcome!",
             style: TextStyle(
               color: Colors.black,
             ),
@@ -24,7 +25,6 @@ class NewHome extends StatelessWidget {
 //              FlatButton.icon(onPressed: ()async{
 //                  await _auth.signingOut();
 //                }, icon: Icon(Icons.person), label: Text("Logout")),
-
 
 //            FlatButton.icon(onPressed: (){
 //              Navigator.push(
@@ -43,10 +43,10 @@ class NewHome extends StatelessWidget {
                 },
                 icon: Icon(Icons.person),
                 label: Text("Profile")),
-
           ],
           bottom: TabBar(
 //            labelColor: Colors.purple[100],
+
           indicatorColor:  Colors.lightBlue,
             tabs: [
 
@@ -80,13 +80,13 @@ class NewHome extends StatelessWidget {
                   ),
                 ),
               ),
+
             ],
           ),
         ),
         body: Container(
 //          color: Colors.purple[100],
           child: TabBarView(
-
             children: [
               ShowTutor(category: 'need'),
               givers(),

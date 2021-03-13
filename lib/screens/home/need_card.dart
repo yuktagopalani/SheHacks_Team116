@@ -33,7 +33,7 @@ class NeedCard extends StatelessWidget {
         },
 
           child: Card(
-
+            color: Colors.blue[50],
               shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(55),
 
