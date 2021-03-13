@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hobbyhub/screens/authenticate/tutor_register.dart';
 import 'package:hobbyhub/screens/home/givers.dart';
 import 'package:hobbyhub/screens/home/profile.dart';
 import 'package:hobbyhub/screens/home/showtutor.dart';
 import 'package:hobbyhub/services/auth.dart';
+
 class NewHome extends StatelessWidget {
   final AuthService _auth = AuthService();
   @override
@@ -18,18 +18,20 @@ class NewHome extends StatelessWidget {
 //                  await _auth.signingOut();
 //                }, icon: Icon(Icons.person), label: Text("Logout")),
 
-            FlatButton.icon(onPressed: (){
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Profile()),
-              );
-
-              }, icon: Icon(Icons.person), label: Text("Profile")),
+            FlatButton.icon(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Profile()),
+                  );
+                },
+                icon: Icon(Icons.person),
+                label: Text("Profile")),
           ],
           bottom: TabBar(
             tabs: [
               Tab(text: "Needs"),
-              Tab(text: "Givers"),
+              Tab(text: "Society"),
               Tab(text: "Community"),
             ],
           ),

@@ -14,8 +14,6 @@ class categorydetails extends StatelessWidget {
           actions: <Widget>[
             FlatButton.icon(
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => Categoryform(category: category)));
               },
               icon: Icon(
                 Icons.person,
@@ -63,6 +61,8 @@ class categorydetails extends StatelessWidget {
               Icons.add,
             ),
             onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => Categoryform(category: category)));
               // action on button press
             }));
   }
