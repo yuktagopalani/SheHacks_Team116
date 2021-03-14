@@ -2,16 +2,16 @@
 
 AID CHANGE is a Flutter based andriod application.
 It is a great way to spread awareness about various hidden issues of our society along with the aid needed by them. It reminds us our responsibility of building a community that walks together in every field. Everyone should learn to feel, think and act with respect for themselves and for other people. Each one should pursue their own well-being,while also being considerate of the needs and feelings of others.
-![Initial Page]()
-![Setting Page]()
+![Initial Page](images/Sign in.jpeg)
+![Need Page](images/Need.jpeg)
 
 Here needy ones can ask for any kind of help needed or organisations can drop their day to day needs.
-![takers]()
+![help page](images/help.jpeg)
 
 # Special Feature: Clarity
 We have focussed on each and every section of the society in the best possible way so that we could sense the problems of each kind and propose solutions through different means.
-![givers]()
-![women]()
+![blogs]( images/blog.jpeg)
+![women](images/blogdetails.jpeg)
 
 # Responsiveness:
 24x7
