@@ -31,7 +31,7 @@ As in 2020, we have seen major crisis happening all around the world, in the sam
 
 
 ## BUILT With ❤️🧡💛💚
-| FrontEnd    | BackEnd     |
+| FrontEnd    | Database    |
 | ----------- | ----------- |
 | DART        | Firebase    |
 
